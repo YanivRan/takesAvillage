@@ -24,7 +24,7 @@
             = link_to "logout", sign_out_path, method: :delete
       .grid-block
         .grid-block.small-12.medium-9.vertical
-          .grid-content
+          .grid-content.Messages
             - @messages.each do |message|
               %h4
                 = image_tag(message.user.dialect.icon_path, size: "30x30")

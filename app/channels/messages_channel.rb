@@ -7,7 +7,9 @@ class MessagesChannel < ApplicationCable::Channel
     message = Message.new data.merge(user: current_user)
     if message.save
       ActionCable.server.broadcast "messages",
-        message: data["body"]
+        message: data["body"], 
+        user_email: current_user.email, 
+        icon: current_user.dialect.icon_path
     end
   end
 end

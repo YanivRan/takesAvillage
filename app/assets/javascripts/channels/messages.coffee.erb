@@ -1,0 +1,14 @@
+<%
+imgs = {}
+Dir.chdir("#{Rails.root}/app/assets/images/") do
+  imgs = Dir["**"].inject({}) {|h,f| h.merge! f => image_path(f)}
+end
+%>
+
+window.image_path = (name) ->
+  <%= imgs.to_json %>[name]
+
+App.messages = App.cable.subscriptions.create "MessagesChannel",
+  received: (data) ->
+    image = "<img src=#{image_path(data.icon)} width=30 height=30 />"
+    $(".Messages").append("<h4>#{image}#{data.user_email}</h4><p>#{data.message}</p><hr />")
