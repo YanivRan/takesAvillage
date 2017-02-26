@@ -1,5 +1,5 @@
 module DegraeveHelper 
-
+  
   # Call an ADdegraeve translation API method
   #
   # @param dialect [Dialect]      contains URI and name for API endpoint
@@ -8,8 +8,7 @@ module DegraeveHelper
 
     uri = URI.parse("#{dialect.path}?w=#{text}&d=#{dialect.name}")
     res = Net::HTTP.get(uri)
-    res
-    #p res.split('<blockquote>').split('</blockquote>')[1]
-    @results = res.split('<blockquote>')[1].split('</blockquote>')[0]
+    
+    @results = ActionController::Base.helpers.sanitize(res.split('<blockquote>')[1].split('</blockquote>')[0])
   end
 end 
