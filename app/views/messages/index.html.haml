@@ -9,29 +9,9 @@
         %section.block-list
           %header Rooms
           %ul
-            %li
-              %a{:href => "#"}
-                Slam Book
-                %span.block-list-label 7
-            %li
-              %a{:href => "#"}
-                Foundation Chat
-                %span.block-list-label 2
-            %li
-              %a.success{:href => "#"}
-                LolCats
-                %span.block-list-label 2
-        %section.block-list
-          %header People
-          %ul
-            %li
-              %a{:href => "#"}
-                Glen Coco
-                %span.block-list-label 2
-            %li
-              %a.success{:href => "#"}
-                Guy Guyerson
-                %span.block-list-label 2
+            - @rooms.each do |room|
+              %li
+                = link_to room.name, messages_path(room.id)
       .grid-content.collapse.shrink.avatar-section
         %img{:src => "http://placehold.it/50x50"}/
         Regina George

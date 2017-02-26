@@ -7,3 +7,8 @@
   <%= form.label :password %>
   <%= form.password_field :password %>
 </div>
+
+<div class="text-field">
+  <%= form.label :dialect_id %>
+  <%= collection_select(:user, :dialect_id, Dialect.all, :id, :name, prompt: true) %>
+</div>

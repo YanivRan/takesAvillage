@@ -9,3 +9,5 @@
 Dialect.create([{ display_name: 'Yoda' , name: 'yoda' , path: 'http://www.degraeve.com/cgi-bin/babel.cgi' , icon_path: 'yoda.svg' },
 	{ display_name: 'Valley Girl', name: 'valley', path: 'http://www.degraeve.com/cgi-bin/babel.cgi' , icon_path: 'valley_girl.svg' },
 	{ display_name: 'Binary', name: 'binary', path: 'http://www.degraeve.com/cgi-bin/babel.cgi' , icon_path: 'binary.svg' }])
+Room.create([{name: 'general'},{name: 'yoda talkers'}])
+User.create([{email: 'example@gmail.com', password:'example', dialect_id: 1}])
