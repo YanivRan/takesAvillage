@@ -2,7 +2,6 @@ class MessagesController < ApplicationController
   before_action :require_login
   
   def index
-    @rooms = Room.all 
     @users = User.where(status: 1)
     @messages = Message.all
     @message = Message.new

@@ -61,6 +61,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rspec-json_expectations'
   gem 'timecop'
+  gem 'capybara'
+  gem 'factory_girl_rails'
   gem 'spring' 						## Spring speeds up development by keeping your application running in the background.
   gem 'spring-watcher-listen'
 end
