@@ -13,8 +13,8 @@
               %li
                 = link_to room.name, messages_path(room.id)
       .grid-content.collapse.shrink.avatar-section
-        %img{:src => "http://placehold.it/50x50"}/
-        Regina George
+        = image_tag(current_user.dialect.icon_path, size: "30x30")
+        = current_user.email
     .grid-block.collapse.medium-9.large-9.vertical
       #header.shrink.collapse.grid-content
         %ul.menu-bar.primary
