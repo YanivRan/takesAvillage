@@ -30,7 +30,7 @@
                 = image_tag(message.user.dialect.icon_path, size: "30x30")
                 = message.user.email
               %p 
-                = message.body
+                = message.translate
               %hr/
           = form_for @message do |form|
             .message-input.grid-content.collapse.shrink

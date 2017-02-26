@@ -29,6 +29,8 @@ class MessagesController < ApplicationController
 
   def send_notifications
     ActionCable.server.broadcast "messages",
-      message: @message.body
+      message: @message.translate,
+      user_email: current_user.email, 
+      icon: current_user.dialect.icon_path
   end
 end
