@@ -25,15 +25,18 @@
       .grid-block
         .grid-block.small-12.medium-9.vertical
           .grid-content
-            %h4
-              %img{:src => "http://placehold.it/30x30"}/
-              Cady Heron
-            %p Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue.
-            %hr/
-          .message-input.grid-content.collapse.shrink
-            %span.inline-label
-              %input{:placeholder => "Message", :type => "text"}/
-              %a.button{:href => "#"} Send
+            - @messages.each do |message|
+              %h4
+                = image_tag(message.user.dialect.icon_path, size: "30x30")
+                = message.user.email
+              %p 
+                = message.body
+              %hr/
+          = form_for @message do |form|
+            .message-input.grid-content.collapse.shrink
+              %span.inline-label
+                = form.text_field :body
+                = form.submit "Send", data: { disable_with: false }, class: "button"
         .grid-content.medium-3.show-for-medium.message-side-bar
           %section.block-list
             %header Currently Active In This Room
