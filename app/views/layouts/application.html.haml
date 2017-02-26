@@ -1,16 +1,17 @@
-!!! 5
-%html{ :lang => "en" }
+!!!
+%html{:lang => "en"}
   %head
-    %meta{ :charset => "utf-8" }
-
-    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
-
-    %title= content_for?(:title) ? yield(:title) : "Untitled"
-
-    = stylesheet_link_tag "application"
-    = javascript_include_tag "application", "data-turbolinks-track" => true
-    = csrf_meta_tag
-
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "FoundationRailsSeries"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tags
   %body
-
-    = yield
+    .row
+      - flash.each do |name, msg|
+        - if msg.is_a?(String)
+          = content_tag :div, msg, class: "alert-box #{name} radius"
+    %div{:clas => "row"}
+      = yield
+    = javascript_include_tag "application"

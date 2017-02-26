@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/RailsApps/rails_layout.git
+  revision: 0196301f8f287a2f05d12b4ae2c9a3ea32fc04e3
+  specs:
+    rails_layout (1.0.34)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -243,6 +249,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.0.1)
   rails_12factor
+  rails_layout!
   redis (~> 3.0)
   rspec-json_expectations
   rspec-rails
