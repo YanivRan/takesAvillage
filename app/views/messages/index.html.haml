@@ -5,13 +5,6 @@
         %a.secondary.button.expand{:href => "", "zf-close" => ""} Close
       .grid-content.collapse.shrink
         = image_tag("Dialect-Chat.png")
-      .grid-content
-        %section.block-list
-          %header Rooms
-          %ul
-            - @rooms.each do |room|
-              %li
-                = link_to room.name, messages_path(room.id)
       .grid-content.collapse.shrink.avatar-section
         = image_tag(current_user.dialect.icon_path, size: "30x30")
         = current_user.email
@@ -39,15 +32,8 @@
                 = form.submit "Send", data: { disable_with: false }, class: "button"
         .grid-content.medium-3.show-for-medium.message-side-bar
           %section.block-list
-            %header Currently Active In This Room
-            %ul
-              %li
-                %a{:href => "#"} Cady Heron
-              %li
-                %a{:href => "#"} Kevin Gnapoor
-              %li
-                %a{:href => "#"} Trang Pak
-              %li
-                %a{:href => "#"} Coach Carr
-              %li
-                %a{:href => "#"} Regina George
+            %header Currently Active
+            %ul.ActiveUsers
+              - @users.each do |user|              
+                %li
+                  = user.email

@@ -12,3 +12,10 @@ App.messages = App.cable.subscriptions.create "MessagesChannel",
   received: (data) ->
     image = "<img src=#{image_path(data.icon)} width=30 height=30 />"
     $(".Messages").append("<h4>#{image}#{data.user_email}</h4><p>#{data.message}</p><hr />")
+    users = "<ul>"
+    $.each data.active_users,(index, value) ->
+      users += "<li>#{value.email}</li>"
+      return
+    users += "</ul>"
+    $(".ActiveUsers").html(users)
+    

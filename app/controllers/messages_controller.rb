@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   
   def index
     @rooms = Room.all 
-    @users = User.all
+    @users = User.where(status: 1)
     @messages = Message.all
     @message = Message.new
   end

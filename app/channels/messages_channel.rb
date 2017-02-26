@@ -9,7 +9,8 @@ class MessagesChannel < ApplicationCable::Channel
       ActionCable.server.broadcast "messages",
         message: message.translate, 
         user_email: current_user.email, 
-        icon: current_user.dialect.icon_path
+        icon: current_user.dialect.icon_path, 
+        active_users: User.where(status: 1)
     end
   end
 end
