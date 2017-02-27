@@ -1,24 +1,14 @@
-# README
+# Simple chat application that show messages in dialects: 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
+## Ruby version - 2.4
 
 * Configuration
+This is a rails 5 application, using ActionCable for websockets communication. 
 
 * Database creation
-
-* Database initialization
+Run "rails db:setup" / "rails db:reset" to create the database, create the table and load the seed files. 
 
 * How to run the test suite
+Rspec ./spec should run all the tests. Right now the tests are mostly limited to the messages_controller due to lack of time. 
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
